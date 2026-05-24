@@ -1,15 +1,19 @@
-'use client'
-
-import { useCurrentUserImage } from '@/hooks/use-current-user-image'
-import { useCurrentUserName } from '@/hooks/use-current-user-name'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
+import { createClient } from '@/lib/supabase/server';
 
-export const CurrentUserAvatar = () => {
-  const profileImage = useCurrentUserImage()
-  const name = useCurrentUserName()
+export const CurrentUserAvatar = async ()  => {
+
+  const supabase = await createClient()
+  const { data } = await supabase.auth.getClaims()
+
+  const user = data?.claims.user_metadata
+
+  const profileImage = user?.avatar_url ?? null
+  const name = user?.full_name ?? '?'
+
   const initials = name
     ?.split(' ')
-    ?.map((word) => word[0])
+    ?.map((word: string) => word[0])
     ?.join('')
     ?.toUpperCase()
 

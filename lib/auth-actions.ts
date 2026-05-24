@@ -57,8 +57,8 @@ export async function signout() {
         console.log(error);
         redirect("/error");
     }
-    
-    redirect("/logout");
+    revalidatePath("/", "layout");
+    redirect("/");
 }
 
 export async function signInWithGoogle() {
@@ -66,12 +66,14 @@ export async function signInWithGoogle() {
     const { data, error } = await supabase.auth.signInWithOAuth({
         provider: "google",
         options: {
-            queryParams: {
+/*             queryParams: {
                 access_type: "offline",
                 prompt: "consent",
-            },
+            }, */
+            redirectTo: `${process.env.SITE_URL}/auth/callback`,
         },
     });
+
     
     if (error) {
         console.log(error);

@@ -16,6 +16,8 @@ import {
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import Link from 'next/link'
+import SignInWithGoogleButton from './SIgnInWithGoogleButton';
+import { FieldSeparator } from './ui/field';
 
 export function LoginForm({ className, ...props }: React.ComponentPropsWithoutRef<'div'>) {
   const [email, setEmail] = useState('')
@@ -48,10 +50,14 @@ export function LoginForm({ className, ...props }: React.ComponentPropsWithoutRe
   return (
     <div className={cn('flex flex-col gap-6', className)} {...props}>
       <Card>
-        <CardHeader>
-          <CardTitle className="text-2xl">Login</CardTitle>
-          <CardDescription>Enter your email below to login to your account</CardDescription>
+        <CardHeader className="space-y-1 text-center">
+          <CardTitle className="text-2xl">Welcome back</CardTitle>
+          <CardDescription>Login with your Google account</CardDescription>
         </CardHeader>
+
+        <SignInWithGoogleButton />
+        <FieldSeparator className="mx-6">Or continue with</FieldSeparator>
+
         <CardContent>
           <form onSubmit={handleLogin}>
             <div className="flex flex-col gap-6">
