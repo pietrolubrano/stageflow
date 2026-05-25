@@ -22,10 +22,10 @@ const features = [
 export default function Home() {
 
   return (
-    <main className="flex min-h-[calc(100vh-70px)] flex-col items-center justify-between">
-      <div className="relative h-[calc(100vh-70px)] overflow-hidden">
+    <main className="flex min-h-[calc(100vh-68px)] flex-col items-center justify-between">
+      <div className="relative h-[calc(100vh-68px)] overflow-hidden">
         <Image
-          className="object-cover object-center min-h-[calc(100vh-70px)] min-w-screen"
+          className="object-cover object-center min-h-[calc(100vh-68px)] min-w-screen"
           src="https://ipzctbvfmsfdjaohawys.supabase.co/storage/v1/object/public/images/sfondo.png"
           alt="sfondo"
           width={1536}

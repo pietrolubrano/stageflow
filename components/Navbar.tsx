@@ -54,7 +54,7 @@ const components: { title: string; href: string; description: string }[] = [
 export default function Navbar() {
     return (
         /* <div className="p-4 sticky top-0 z-10 border-b"> */
-            <NavigationMenu className="p-4 sticky top-0 z-10 bg-[rgb(1,5,30)] text-white">
+            <NavigationMenu className="p-4 fixed top-0 z-50 bg-[rgb(1,5,30)] text-white">
                 <NavigationMenuList className="">
 
                     <NavigationMenuItem>

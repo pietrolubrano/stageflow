@@ -7,6 +7,8 @@ import Navbar from "@/components/Navbar";
 
 const inter = Inter({subsets:['latin'],variable:'--font-sans'});
 
+import { TooltipProvider } from "@/components/ui/tooltip"
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -32,9 +34,13 @@ export default async function RootLayout({
       lang="it"
       className={cn("h-full", "antialiased", geistSans.variable, geistMono.variable, "font-sans", inter.variable)}
     >
-      <body className="min-h-full flex flex-col">
-        <Navbar></Navbar>
-        {children}
+      <body className="min-h-full flex flex-col relative">
+        <TooltipProvider>
+          <Navbar></Navbar>
+          <div className="absolute top-17 w-full">
+            {children}
+          </div>
+        </TooltipProvider>
       </body>
     </html>
   );

@@ -49,7 +49,6 @@ export function SignUpForm({ className, ...props }: React.ComponentPropsWithoutR
           }
         },
       })
-      console.log('Sign up data:', data)
       if (error) throw error
       router.push('/auth/sign-up-success')
     } catch (error: unknown) {

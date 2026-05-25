@@ -70,7 +70,7 @@ export async function signInWithGoogle() {
                 access_type: "offline",
                 prompt: "consent",
             }, */
-            redirectTo: `${process.env.SITE_URL}/auth/callback?next=/protected`, // ensure this matches the redirect URL configured in Supabase
+            redirectTo: `${process.env.SITE_URL}/auth/callback?next=/dashboard`, // ensure this matches the redirect URL configured in Supabase
         },
     });
 
