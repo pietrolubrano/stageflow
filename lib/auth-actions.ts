@@ -70,11 +70,10 @@ export async function signInWithGoogle() {
                 access_type: "offline",
                 prompt: "consent",
             }, */
-            redirectTo: `${process.env.SITE_URL}/auth/callback`,
+            redirectTo: `${process.env.SITE_URL}/auth/callback?next=/protected`, // ensure this matches the redirect URL configured in Supabase
         },
     });
 
-    
     if (error) {
         console.log(error);
         redirect("/error");

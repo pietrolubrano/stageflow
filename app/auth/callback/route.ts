@@ -26,7 +26,7 @@ export async function GET(request: Request) {
         return NextResponse.redirect(`https://${forwardedHost}${next}`)
       } else {
         return NextResponse.redirect(`${origin}${next}`)
-      }
+      } // fallback to original origin if no forwarded host is present
     }
   }
 

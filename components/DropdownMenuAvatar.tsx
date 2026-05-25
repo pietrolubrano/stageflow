@@ -21,7 +21,6 @@ import Link from "next/link";
 import { CurrentUserAvatar } from "./current-user-avatar";
 
 export default async function DropdownMenuAvatar() {
-
   const supabase = await createClient()
   const { data, error } = await supabase.auth.getClaims()
 
